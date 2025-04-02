@@ -1,3 +1,4 @@
+![logo](frontend/public/assets/logo.png)
 # AI Bomb Shelter Project Deployment Guide
 
 ## Prerequisites
