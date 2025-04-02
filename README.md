@@ -10,7 +10,7 @@
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/your-repo/ai_bomb_shelter.git
+git clone https://github.com/peterdn1/ai_bomb_shelter.git
 cd ai_bomb_shelter
 ```
 
