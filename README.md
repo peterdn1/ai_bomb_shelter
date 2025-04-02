@@ -77,6 +77,19 @@ npm start
 
 Access application at: http://localhost:3000
 
+## Docker Deployment
+1. Build and start containers:
+```bash
+docker-compose up --build
+```
+
+2. Access application at: http://localhost:3000
+
+Additional notes:
+- Includes PostgreSQL database
+- Environment variables configured in docker-compose.yml
+- Persistent data storage via volumes
+
 ## Deployment Notes
 - Requires Node.js on both environments
 - Configure reverse proxy (Nginx/Apache) for production
