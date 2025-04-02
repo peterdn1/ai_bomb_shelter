@@ -89,10 +89,10 @@ const SignupForm = () => {
             <form>
                 <div className="mb-6">
                     <div className="flex items-center text-gray-500 mb-1">
-                        <svg className="w-5 h-5 mr-2 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <label htmlFor="signup-name" className="text-sm font-medium">Full Name</label>
+                        <svg className="w-5 h-5 mr-2 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <label htmlFor="signup-username" className="text-sm font-medium">Username</label>
                     </div>
-                    <input type="text" id="signup-name" name="name" className="form-input-line text-gray-700" placeholder=""/>
+                    <input type="text" id="signup-username" name="username" className="form-input-line text-gray-700" placeholder="Enter username"/>
                 </div>
                 <div className="mb-6">
                     <div className="flex items-center text-gray-500 mb-1">
