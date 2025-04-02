@@ -1,0 +1,70 @@
+
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+    networks:
+      - auth-network
+    env_file:
+      - .env
+    depends_on:
+      backend:
+        condition: service_healthy
+    
+    environment:
+      - REACT_APP_API_URL=/api
+
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - ENABLE_LDAP=${ENABLE_LDAP:-false}
+      - DB_NAME=${DB_NAME}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - auth-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "pidof node"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - auth-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
+
+networks:
+  auth-network:
+    driver: bridge
